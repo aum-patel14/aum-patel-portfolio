@@ -154,7 +154,7 @@ export default function Hero() {
                   width={360}
                   height={450}
                   priority
-                  className="w-full h-full object-cover grayscale opacity-80 mix-blend-luminosity hover:grayscale-0 hover:opacity-100 transition-all duration-700"
+                  className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-all duration-500"
                 />
                 
                 {/* Clean inline overlay label */}
