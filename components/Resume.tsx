@@ -5,168 +5,165 @@ import SectionHeader from './ui/SectionHeader'
 
 const resumeHighlights = [
   'Python, SQL, Excel, Power BI, Tableau',
-  'Data cleaning, EDA, visualization',
-  'Dashboard creation & BI reporting',
-  'Machine learning & dynamic segmentation',
-  'Statistical analysis & storytelling',
-  '1.5 Years professional QA & Data experience',
+  'Data cleaning, EDA, and statistical visualization',
+  'Dynamic dashboard architecture & BI reporting',
+  'Machine learning classification & user segmentation',
+  'Statistical storytelling & database administration',
+  '1.5 Years professional QA & Data Analytics experience',
 ]
 
 export default function Resume() {
   return (
-    <section id="resume" className="section-padding relative overflow-hidden">
-      <div
-        className="absolute inset-x-0 top-0 h-px"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)' }}
-      />
-
+    <section id="resume" className="section-padding bg-background relative overflow-hidden">
+      
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <SectionHeader
           tag="// Resume"
           title="My Resume"
-          subtitle="ATS-optimized resume highlighting data analytics skills and project experience"
+          subtitle="A summary of my core data capabilities and research projects"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mt-12">
+          
           {/* Resume Preview Card */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="resume-preview relative overflow-hidden"
+            transition={{ duration: 0.6 }}
+            className="bento-card relative overflow-hidden group shadow-card"
           >
-            {/* Simulated resume page */}
+            {/* Simulated resume page mockup */}
             <div className="p-8" style={{ minHeight: 480 }}>
-              {/* Resume header */}
-              <div className="border-b border-white/08 pb-5 mb-5">
-                <div className="h-6 rounded-md mb-2 w-48 bg-white/10" />
-                <div className="h-3 rounded w-64 mb-1.5" style={{ background: 'rgba(255,255,255,0.06)' }} />
-                <div className="h-3 rounded w-56" style={{ background: 'rgba(255,255,255,0.04)' }} />
+              
+              {/* Mockup Header */}
+              <div className="border-b border-border/80 pb-5 mb-5">
+                <div className="h-6 rounded-sm mb-2.5 w-48 bg-primary/20" />
+                <div className="h-3 rounded-sm w-64 mb-2 bg-[#2D2D2D]" />
+                <div className="h-3 rounded-sm w-56 bg-[#2D2D2D]/60" />
               </div>
-              {/* Summary section */}
+              
+              {/* Mockup Summary */}
               <div className="mb-5">
-                <div className="h-3 rounded mb-3 w-24 bg-white/15" />
-                <div className="space-y-1.5">
-                  {[90, 100, 80, 95, 70].map((w, i) => (
-                    <div key={i} className="h-2 rounded" style={{ width: `${w}%`, background: 'rgba(255,255,255,0.04)' }} />
+                <div className="h-3 rounded-sm mb-3.5 w-24 bg-primary/10" />
+                <div className="space-y-2">
+                  {[90, 100, 80, 95].map((w, i) => (
+                    <div key={i} className="h-2 rounded-sm bg-[#2D2D2D]/40" style={{ width: `${w}%` }} />
                   ))}
                 </div>
               </div>
-              {/* Skills section */}
+              
+              {/* Mockup Skills */}
               <div className="mb-5">
-                <div className="h-3 rounded mb-3 w-20 bg-white/15" />
+                <div className="h-3 rounded-sm mb-3.5 w-20 bg-primary/10" />
                 <div className="flex flex-wrap gap-2">
                   {['Python', 'SQL', 'Power BI', 'Tableau', 'Excel', 'Pandas', 'NumPy', 'Statistics'].map(s => (
-                    <div key={s} className="h-5 px-2 rounded-md flex items-center" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                      <span className="text-xs" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-jetbrains)' }}>{s}</span>
+                    <div key={s} className="h-5 px-2 rounded-sm bg-surface-container border border-border flex items-center">
+                      <span className="text-[10px] font-mono text-text-secondary">{s}</span>
                     </div>
                   ))}
                 </div>
               </div>
-              {/* Experience section */}
+              
+              {/* Mockup Experience */}
               <div className="mb-5">
-                <div className="h-3 rounded mb-3 w-28 bg-white/15" />
+                <div className="h-3 rounded-sm mb-3.5 w-28 bg-primary/10" />
                 {[1, 2].map(j => (
-                  <div key={j} className="mb-3">
-                    <div className="flex justify-between mb-1.5">
-                      <div className="h-2.5 rounded w-40" style={{ background: 'rgba(255,255,255,0.08)' }} />
-                      <div className="h-2.5 rounded w-20" style={{ background: 'rgba(255,255,255,0.04)' }} />
+                  <div key={j} className="mb-3.5">
+                    <div className="flex justify-between mb-2">
+                      <div className="h-2.5 rounded-sm w-40 bg-[#2D2D2D]" />
+                      <div className="h-2.5 rounded-sm w-20 bg-[#2D2D2D]/40" />
                     </div>
-                    <div className="space-y-1">
+                    <div className="space-y-1.5">
                       {[85, 100].map((w, k) => (
-                        <div key={k} className="h-2 rounded" style={{ width: `${w}%`, background: 'rgba(255,255,255,0.04)' }} />
+                        <div key={k} className="h-2 rounded-sm bg-[#2D2D2D]/40" style={{ width: `${w}%` }} />
                       ))}
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Watermark */}
+              {/* Watermark label */}
               <div className="absolute bottom-6 right-6">
                 <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded bg-white/10 border border-white/10 flex items-center justify-center">
-                    <FileText className="w-3 h-3 text-white" />
+                  <div className="w-5 h-5 rounded-sm bg-surface-container border border-border flex items-center justify-center">
+                    <FileText className="w-3 h-3 text-primary" />
                   </div>
-                  <span className="text-xs text-text-muted" style={{ fontFamily: 'var(--font-jetbrains)' }}>Aum Patel — Resume.pdf</span>
+                  <span className="text-[10px] font-mono text-text-muted">Aum Patel — Resume.pdf</span>
                 </div>
               </div>
+
             </div>
 
-            {/* Hover overlay */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
-              style={{ background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(4px)' }}
+            {/* Hover preview overlay */}
+            <div 
+              className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface/90 backdrop-blur-sm"
             >
               <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-primary">
                 <Eye className="w-4 h-4" /> Preview Resume
               </a>
             </div>
+            
           </motion.div>
 
-          {/* Right — Info & Download */}
+          {/* Right — Highlights & Action */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.6 }}
             className="flex flex-col gap-6"
           >
-            {/* What's inside */}
-            <div className="glass-card p-6">
-              <h3
-                className="font-outfit font-bold text-xl text-text-primary mb-5"
-                style={{ fontFamily: 'var(--font-outfit)' }}
-              >
-                What&apos;s Inside
+            {/* Core Competencies Bento Module */}
+            <div className="bento-card bg-surface-container-low p-6">
+              <h3 className="font-serif text-xl text-text-primary mb-5">
+                Core Competencies
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {resumeHighlights.map((item, i) => (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, x: 16 }}
+                    initial={{ opacity: 0, x: 12 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: i * 0.06 }}
-                    className="flex items-center gap-3"
+                    transition={{ delay: i * 0.05 }}
+                    className="flex items-center gap-3.5"
                   >
-                    <CheckCircle className="w-4 h-4 flex-shrink-0 text-white" />
-                    <span className="text-text-secondary text-sm">{item}</span>
+                    <CheckCircle className="w-4 h-4 flex-shrink-0 text-primary" />
+                    <span className="text-text-secondary text-sm font-sans">{item}</span>
                   </motion.div>
                 ))}
               </div>
             </div>
 
-            {/* Download CTA */}
+            {/* Download CTA Module */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="relative rounded-2xl p-6 overflow-hidden text-center bg-surface border border-white/5"
+              transition={{ delay: 0.2 }}
+              className="bento-card bg-surface-container-low p-6 text-center relative overflow-hidden"
             >
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{ background: 'radial-gradient(circle at 50% 0%, rgba(255,255,255,0.02), transparent 70%)' }}
-              />
-              <FileText className="w-10 h-10 mx-auto mb-3 text-white" />
-              <h4
-                className="font-outfit font-bold text-xl text-text-primary mb-2"
-                style={{ fontFamily: 'var(--font-outfit)' }}
-              >
-                Download My Resume
+              <FileText className="w-8 h-8 mx-auto mb-3.5 text-primary" />
+              <h4 className="font-serif text-lg text-text-primary mb-2">
+                Download PDF
               </h4>
-              <p className="text-text-secondary text-sm mb-5">
-                ATS-friendly PDF. Showcases all skills, projects, and professional experience.
+              <p className="text-text-secondary text-xs sm:text-sm mb-5 leading-relaxed max-w-sm mx-auto">
+                Secure an ATS-optimized, fully detailed version of my profile for your recruitment database.
               </p>
+              
               <a href="/resume.pdf" download className="btn-primary justify-center w-full">
                 <Download className="w-4 h-4" />
                 Download Resume PDF
               </a>
-              <p className="text-text-muted text-xs mt-3" style={{ fontFamily: 'var(--font-jetbrains)' }}>
-                Last updated: May 2025
+              
+              <p className="text-text-muted font-mono text-[9px] tracking-wider uppercase mt-4">
+                Last updated: May 2026
               </p>
             </motion.div>
           </motion.div>
+
         </div>
       </div>
     </section>

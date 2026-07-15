@@ -1,25 +1,25 @@
 import type { Metadata } from 'next'
-import { Outfit, DM_Sans, JetBrains_Mono } from 'next/font/google'
+import { Playfair_Display, Hanken_Grotesk, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
-const outfit = Outfit({
+const playfair = Playfair_Display({
   subsets: ['latin'],
-  variable: '--font-outfit',
-  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-playfair',
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
 })
 
-const dmSans = DM_Sans({
+const hanken = Hanken_Grotesk({
   subsets: ['latin'],
-  variable: '--font-dm-sans',
-  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-hanken',
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
 })
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-jetbrains',
-  weight: ['400', '500'],
+  weight: ['400', '500', '600'],
   display: 'swap',
 })
 
@@ -81,7 +81,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body
-        className={`${outfit.variable} ${dmSans.variable} ${jetbrainsMono.variable} font-dm antialiased bg-background text-text-primary overflow-x-hidden`}
+        className={`${playfair.variable} ${hanken.variable} ${jetbrainsMono.variable} font-sans antialiased bg-background text-text-primary overflow-x-hidden`}
       >
         {children}
       </body>

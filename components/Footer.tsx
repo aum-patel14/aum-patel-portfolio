@@ -1,6 +1,5 @@
 'use client'
-import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, BarChart2, Heart } from 'lucide-react'
+import { Github, Linkedin, Mail, Heart } from 'lucide-react'
 import { personalInfo } from '@/lib/data'
 
 const footerLinks = [
@@ -25,49 +24,32 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative overflow-hidden"
-      style={{
-        background: 'var(--background)',
-        borderTop: '1px solid rgba(255,255,255,0.05)',
-      }}
+    <footer 
+      className="relative overflow-hidden bg-background border-t border-border/80"
     >
-      <div
-        className="absolute inset-x-0 top-0 h-px"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)' }}
-      />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
-        {/* Top row */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+        
+        {/* Top grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
-          {/* Brand */}
+          
+          {/* Brand Column */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div
-                className="w-8 h-8 rounded-lg flex items-center justify-center bg-white/5 border border-white/5"
-              >
-                <BarChart2 className="w-4 h-4 text-white" />
-              </div>
-              <span
-                className="font-outfit font-bold text-lg text-text-primary"
-                style={{ fontFamily: 'var(--font-outfit)' }}
-              >
-                Aum<span className="text-white">.</span>
+              <span className="font-serif font-bold text-xl text-primary tracking-wide">
+                AUM PATEL
               </span>
             </div>
-            <p className="text-text-muted text-sm leading-relaxed max-w-xs">
-              Aspiring Data Analyst from Gujarat, India — transforming raw data into actionable insights through Python, SQL, and BI tools.
+            <p className="text-text-secondary text-sm leading-relaxed max-w-xs font-sans">
+              Aspiring Data Analyst from Gujarat, India. Transforming raw logs and business metrics into structured insights and storytelling.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links Column */}
           <div>
-            <h4
-              className="font-outfit font-semibold text-text-primary mb-4 text-sm uppercase tracking-wider"
-              style={{ fontFamily: 'var(--font-outfit)' }}
-            >
+            <h4 className="font-mono text-[10px] font-semibold text-text-primary mb-4 uppercase tracking-widest">
               Quick Links
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {footerLinks.map(link => (
                 <li key={link.href}>
                   <a
@@ -76,7 +58,7 @@ export default function Footer() {
                       e.preventDefault()
                       handleNavClick(link.href)
                     }}
-                    className="text-text-muted text-sm hover:text-accent-blue-light transition-colors duration-200"
+                    className="text-text-secondary text-sm hover:text-primary transition-colors duration-300 font-sans"
                   >
                     {link.label}
                   </a>
@@ -85,25 +67,21 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Get in Touch */}
+          {/* Contact Column */}
           <div>
-            <h4
-              className="font-outfit font-semibold text-text-primary mb-4 text-sm uppercase tracking-wider"
-              style={{ fontFamily: 'var(--font-outfit)' }}
-            >
+            <h4 className="font-mono text-[10px] font-semibold text-text-primary mb-4 uppercase tracking-widest">
               Get in Touch
             </h4>
-            <p className="text-text-muted text-sm mb-4">
-              Open to internships and entry-level data roles.
+            <p className="text-text-secondary text-sm mb-4 font-sans">
+              Open to internship opportunities and data strategy roles.
             </p>
             <a
               href={`mailto:${personalInfo.email}`}
-              className="text-accent-blue-light text-sm hover:underline"
-              style={{ color: 'var(--accent-blue-light)', fontFamily: 'var(--font-jetbrains)' }}
+              className="text-primary text-sm hover:underline font-mono"
             >
               {personalInfo.email}
             </a>
-            <div className="flex gap-2 mt-4">
+            <div className="flex gap-2.5 mt-4">
               {socialLinks.map(s => {
                 const Icon = s.icon
                 return (
@@ -121,27 +99,25 @@ export default function Footer() {
               })}
             </div>
           </div>
+          
         </div>
 
-        {/* Bottom divider */}
+        {/* Bottom copyright row */}
         <div
-          className="border-t pt-6 flex flex-col sm:flex-row justify-between items-center gap-4"
-          style={{ borderColor: 'rgba(255,255,255,0.06)' }}
+          className="border-t pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 border-[#2D2D2D]/60"
         >
-          <p className="text-text-muted text-sm flex items-center gap-1.5">
+          <p className="text-text-muted text-xs sm:text-sm flex items-center gap-1.5 font-sans">
             Built with{' '}
-            <Heart className="w-3.5 h-3.5 text-white inline" />
+            <Heart className="w-3.5 h-3.5 text-primary inline fill-primary/20" />
             {' '}by{' '}
             <span className="text-text-primary font-medium">Aum Patel</span>
             {' '}· {new Date().getFullYear()}
           </p>
-          <p
-            className="text-text-muted text-xs"
-            style={{ fontFamily: 'var(--font-jetbrains)' }}
-          >
+          <p className="text-text-muted font-mono text-[10px] tracking-wide">
             Next.js · TypeScript · Tailwind · Framer Motion
           </p>
         </div>
+        
       </div>
     </footer>
   )

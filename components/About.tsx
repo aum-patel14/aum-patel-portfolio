@@ -1,187 +1,121 @@
 'use client'
 import { motion } from 'framer-motion'
-import { MapPin, GraduationCap, Calendar, Flame, Mail, CheckCircle, Target, BarChart2, Code, Database } from 'lucide-react'
+import { Target, BarChart2, Code, Database, Terminal, Verified, Quote } from 'lucide-react'
 import SectionHeader from './ui/SectionHeader'
-import { aboutHighlights, personalInfo } from '@/lib/data'
-
-const infoCards = [
-  { icon: MapPin, label: 'Location', value: personalInfo.location, color: '#3b82f6' },
-  { icon: GraduationCap, label: 'Degree', value: 'B.Tech (CSE) & Diploma', color: '#8b5cf6' },
-  { icon: Calendar, label: 'Duration', value: '2024 – 2027 (Expected)', color: '#06b6d4' },
-  { icon: Flame, label: 'Interests', value: 'Analytics · BI · Python', color: '#f59e0b' },
-  { icon: Mail, label: 'Email', value: personalInfo.email, color: '#ec4899' },
-  { icon: CheckCircle, label: 'Status', value: 'Open to Opportunities', color: '#22c55e' },
-]
-
-const iconMap: Record<string, React.ElementType> = {
-  target: Target,
-  'bar-chart': BarChart2,
-  code: Code,
-  database: Database,
-}
+import { skills, personalInfo } from '@/lib/data'
 
 export default function About() {
   return (
     <section id="about" className="section-padding bg-background relative overflow-hidden">
-      {/* Subtle background glow */}
+      {/* Subtle background gradient glow */}
       <div
-        className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none"
+        className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(255,255,255,0.015), transparent 70%)',
-          filter: 'blur(40px)',
+          background: 'radial-gradient(circle, rgba(200, 162, 124, 0.015), transparent 70%)',
+          filter: 'blur(60px)',
         }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <SectionHeader
           tag="// Who I Am"
-          title="About Me"
-          subtitle="A data enthusiast from Gujarat building industry-ready analytical skills"
+          title="About & Philosophy"
+          subtitle="Combining computational training with analytical rigor"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left — Bio */}
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          {/* Left — Editorial Biography (Spans 5 cols) */}
+          <div className="lg:col-span-5 space-y-6">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.7 }}
-              className="space-y-6 mb-10"
+              transition={{ duration: 0.6 }}
+              className="space-y-6 text-text-secondary text-base sm:text-lg leading-relaxed font-sans"
             >
-              <p className="text-text-secondary leading-relaxed text-lg">
-                I&apos;m{' '}
-                <span className="text-text-primary font-semibold">Aum Patel</span>, an aspiring
-                Data Analyst from Gujarat, India. From the moment I discovered the power of data
-                to tell stories and drive decisions, I knew this was my path.
+              <p>
+                I&apos;m <span className="text-text-primary font-semibold">Aum Patel</span>, an aspiring 
+                Data Analyst currently pursuing my B.Tech in Computer Science & Engineering at Parul University.
               </p>
-              <p className="text-text-secondary leading-relaxed text-lg">
-                My journey began with{' '}
-                <span className="text-text-primary font-medium">Python and statistics</span>, then
-                expanded into databases, SQL queries, and dashboard creation. I love working at
-                the intersection of data, logic, and{' '}
-                <span className="text-text-primary font-medium">real business impact</span>.
+              <p>
+                My professional experience includes <span className="text-text-primary font-medium">1.5 years as a QA Tester & Data Analyst at Apollo Tyres</span>. 
+                This tenure trained me to approach data with extreme precision—validating software systems, analyzing process defect logs, and delivering visual dashboards that helped management identify operational waste.
               </p>
-              <p className="text-text-secondary leading-relaxed text-lg">
-                Today, I build{' '}
-                <span className="text-text-primary font-medium">interactive Power BI dashboards</span>,
-                write complex{' '}
-                <span className="text-text-primary font-medium">SQL analytical queries</span>, and
-                use Python&apos;s data ecosystem (Pandas, NumPy, Matplotlib) to extract insights
-                from messy, real-world datasets.
-              </p>
-              <p className="text-text-secondary leading-relaxed text-lg">
-                My goal is to join a data-driven organization as a{' '}
-                <span className="gradient-text font-semibold">Data Analyst</span> and contribute
-                to decisions that create measurable value. I bring a self-learning mindset,
-                attention to detail, and a relentless curiosity for data.
+              <p>
+                Today, I build data pipelines, write optimized analytical SQL, and engineer web tools like 
+                <span className="text-text-primary font-medium"> ChessMaster Pro</span>. I enjoy working at 
+                the intersection of logic, statistics, and business strategy.
               </p>
             </motion.div>
+          </div>
 
-            {/* Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {aboutHighlights.map((item, i) => {
-                const Icon = iconMap[item.icon] || Target
-                return (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-60px' }}
-                    transition={{ delay: i * 0.1, duration: 0.5 }}
-                    className="glass-card p-5"
-                  >
-                    <div
-                      className="w-9 h-9 rounded-xl flex items-center justify-center mb-3"
-                      style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
+          {/* Right — Bento Grid Highlights (Spans 7 cols) */}
+          <div className="lg:col-span-7 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(180px,auto)]">
+              
+              {/* Core Expertise Card (Spans 2 cols) */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="bento-card bg-surface-container-low p-6 md:col-span-2 flex flex-col justify-between"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <Terminal className="w-4 h-4 text-primary" />
+                  <h3 className="font-mono text-xs uppercase tracking-wider text-text-primary">
+                    Core Expertise
+                  </h3>
+                </div>
+                <div className="flex flex-wrap gap-2.5">
+                  {['Python', 'SQL', 'Excel', 'Pandas', 'Power BI', 'NumPy', 'Tableau', 'Machine Learning'].map((tech) => (
+                    <span
+                      key={tech}
+                      className="bg-surface-container-high px-3.5 py-1.5 font-mono text-[11px] text-text-secondary rounded border border-border/40 hover:border-primary/30 transition-all duration-300"
                     >
-                      <Icon className="w-4 h-4 text-white" />
-                    </div>
-                    <h4
-                      className="font-outfit font-semibold text-text-primary mb-1"
-                      style={{ fontFamily: 'var(--font-outfit)' }}
-                    >
-                      {item.label}
-                    </h4>
-                    <p className="text-text-muted text-sm leading-relaxed">{item.description}</p>
-                  </motion.div>
-                )
-              })}
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Quick Stats Card (Spans 1 col) */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bento-card bg-surface-container-low p-6 flex flex-col justify-center items-center text-center"
+              >
+                <Verified className="w-6 h-6 text-primary mb-3" />
+                <h4 className="font-serif text-3xl font-bold text-primary mb-1">1.5</h4>
+                <p className="font-mono text-[9px] tracking-widest uppercase text-on-surface-variant">
+                  Years QA & Data Experience
+                </p>
+              </motion.div>
+
+              {/* Analytical Philosophy Quote Card (Spans 3 cols) */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bento-card bg-surface-container-low p-8 md:col-span-3 flex flex-col justify-center relative overflow-hidden min-h-[160px]"
+              >
+                <div className="absolute right-6 top-6 opacity-[0.03]">
+                  <Quote className="w-32 h-32 text-primary" />
+                </div>
+                
+                <p className="font-serif text-lg md:text-xl text-text-secondary italic leading-relaxed relative z-10 text-center max-w-2xl mx-auto">
+                  &ldquo;Data without context is merely noise. True analytical value lies in forging the narrative that bridges complex metrics with actionable strategy.&rdquo;
+                </p>
+              </motion.div>
+
             </div>
           </div>
 
-          {/* Right — Info Cards */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              {infoCards.map((card, i) => {
-                const Icon = card.icon
-                return (
-                  <motion.div
-                    key={card.label}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.08 }}
-                    className="glass-card p-4 flex items-center gap-4"
-                  >
-                    <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{
-                        background: card.label === 'Status' ? 'rgba(34,197,94,0.06)' : 'rgba(255,255,255,0.03)',
-                        border: card.label === 'Status' ? '1px solid rgba(34,197,94,0.15)' : '1px solid rgba(255,255,255,0.06)'
-                      }}
-                    >
-                      <Icon className="w-4 h-4" style={{ color: card.label === 'Status' ? '#4ade80' : '#ffffff' }} />
-                    </div>
-                    <div>
-                      <div className="text-text-muted text-xs mb-0.5 font-medium uppercase tracking-wider">
-                        {card.label}
-                      </div>
-                      <div
-                        className={`text-sm font-semibold ${
-                          card.label === 'Status' ? 'text-green-400' : 'text-text-primary'
-                        }`}
-                      >
-                        {card.value}
-                      </div>
-                    </div>
-                  </motion.div>
-                )
-              })}
-            </div>
-
-            {/* Personal brand statement */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="relative rounded-2xl overflow-hidden p-6"
-              style={{
-                background: '#09090b',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-              }}
-            >
-              <div className="absolute top-0 right-0 w-48 h-48 pointer-events-none" style={{
-                background: 'radial-gradient(circle, rgba(255,255,255,0.02), transparent 70%)',
-              }} />
-              <p
-                className="font-outfit text-xl font-semibold leading-relaxed gradient-text mb-3"
-                style={{ fontFamily: 'var(--font-outfit)' }}
-              >
-                &ldquo;I am an aspiring Data Analyst passionate about solving real-world problems
-                using data.&rdquo;
-              </p>
-              <p className="text-text-muted text-sm">
-                — Focused on Python, SQL, dashboards, and continuous growth toward industry-ready skills.
-              </p>
-            </motion.div>
-          </motion.div>
         </div>
       </div>
     </section>

@@ -41,17 +41,17 @@ export default function AnimatedCursor() {
         if (isInteractive) {
           ringRef.current.style.width = '48px'
           ringRef.current.style.height = '48px'
-          ringRef.current.style.borderColor = 'rgba(255, 255, 255, 0.7)'
-          dotRef.current.style.width = '6px'
-          dotRef.current.style.height = '6px'
-          dotRef.current.style.background = '#ffffff'
+          ringRef.current.style.borderColor = 'var(--accent-gold)'
+          dotRef.current.style.width = '8px'
+          dotRef.current.style.height = '8px'
+          dotRef.current.style.background = 'var(--accent-gold-light)'
         } else {
           ringRef.current.style.width = '32px'
           ringRef.current.style.height = '32px'
-          ringRef.current.style.borderColor = 'rgba(255, 255, 255, 0.3)'
+          ringRef.current.style.borderColor = 'rgba(200, 162, 124, 0.3)'
           dotRef.current.style.width = '6px'
           dotRef.current.style.height = '6px'
-          dotRef.current.style.background = '#ffffff'
+          dotRef.current.style.background = 'var(--accent-gold)'
         }
       }
     }

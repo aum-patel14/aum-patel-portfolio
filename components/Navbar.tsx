@@ -42,7 +42,6 @@ export default function Navbar() {
     const el = document.querySelector(href)
     el?.scrollIntoView({ behavior: 'smooth' })
   }
-
   return (
     <>
       <motion.nav
@@ -54,26 +53,20 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <a
               href="#home"
               onClick={() => handleNavClick('#home')}
               className="flex items-center gap-2 group"
             >
-              <div className="w-8 h-8 rounded-lg bg-white/05 border border-white/10 flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:border-white">
-                <BarChart2 className="w-4 h-4 text-white group-hover:text-black transition-colors duration-300" />
-              </div>
-              <span
-                className="font-outfit font-bold text-lg text-text-primary group-hover:text-white transition-all duration-300"
-                style={{ fontFamily: 'var(--font-outfit)' }}
-              >
-                Aum<span className="text-white/40 group-hover:text-white transition-colors duration-300">.</span>
+              <span className="font-serif font-bold text-xl text-text-primary tracking-wide hover:text-primary transition-colors duration-300">
+                AUM PATEL
               </span>
             </a>
 
             {/* Desktop Nav Links */}
-            <ul className="hidden lg:flex items-center gap-1">
+            <ul className="hidden lg:flex items-center gap-4">
               {navLinks.map(link => {
                 const isActive = activeSection === link.href.slice(1)
                 return (
@@ -84,17 +77,16 @@ export default function Navbar() {
                         e.preventDefault()
                         handleNavClick(link.href)
                       }}
-                      className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 block ${
+                      className={`relative px-3 py-2 text-xs uppercase tracking-widest font-mono font-medium transition-all duration-200 block ${
                         isActive
-                          ? 'text-white'
-                          : 'text-text-secondary hover:text-text-primary'
+                          ? 'text-primary'
+                          : 'text-on-surface-variant hover:text-primary'
                       }`}
                     >
                       {isActive && (
                         <motion.span
                           layoutId="nav-indicator"
-                          className="absolute inset-0 rounded-lg bg-white/08"
-                          style={{ background: 'rgba(255,255,255,0.07)' }}
+                          className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary"
                           transition={{ type: 'spring', duration: 0.4 }}
                         />
                       )}
@@ -125,7 +117,7 @@ export default function Navbar() {
               >
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href="/resume.pdf" download className="btn-primary text-sm py-2 px-4">
+              <a href="/resume.pdf" download className="btn-primary text-xs py-2 px-5">
                 <Download className="w-3.5 h-3.5" />
                 Resume
               </a>
@@ -166,13 +158,12 @@ export default function Navbar() {
                     e.preventDefault()
                     handleNavClick(link.href)
                   }}
-                  className="text-2xl font-outfit font-semibold text-text-primary hover:gradient-text transition-all duration-200 block text-center"
-                  style={{ fontFamily: 'var(--font-outfit)' }}
+                  className="text-xl font-serif font-semibold text-text-primary hover:text-primary transition-all duration-200 block text-center"
                 >
                   {link.label}
                 </motion.a>
               ))}
-              <div className="pt-6 border-t border-white/08 w-full flex flex-col items-center gap-4">
+              <div className="pt-6 border-t border-border w-full flex flex-col items-center gap-4">
                 <a href="/resume.pdf" download className="btn-primary w-full justify-center">
                   <Download className="w-4 h-4" />
                   Download Resume

@@ -19,8 +19,7 @@ export default function SectionHeader({ tag, title, subtitle, center = true }: S
     >
       <span className="section-tag">{tag}</span>
       <h2
-        className="font-outfit text-4xl md:text-5xl font-bold mt-3 mb-4"
-        style={{ fontFamily: 'var(--font-outfit)' }}
+        className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold mt-3 mb-4 text-text-primary"
       >
         {title}
       </h2>

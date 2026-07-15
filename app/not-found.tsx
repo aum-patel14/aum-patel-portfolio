@@ -9,22 +9,21 @@ export default function NotFound() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        background: '#030712',
-        color: '#F0F6FC',
-        fontFamily: 'var(--font-outfit), sans-serif',
+        background: '#131313',
+        color: '#e5e2e1',
+        fontFamily: 'var(--font-hanken), sans-serif',
         textAlign: 'center',
         padding: '2rem',
       }}
     >
       <div
         style={{
-          fontSize: '8rem',
-          fontWeight: 800,
-          background: 'linear-gradient(135deg, #3B82F6, #8B5CF6)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
+          fontSize: '7rem',
+          fontWeight: 700,
+          fontFamily: 'var(--font-playfair), serif',
+          color: '#c8a27c',
           lineHeight: 1,
-          marginBottom: '1rem',
+          marginBottom: '1.5rem',
         }}
       >
         404
@@ -34,27 +33,22 @@ export default function NotFound() {
           fontSize: '1.5rem',
           fontWeight: 600,
           marginBottom: '0.75rem',
-          color: '#F0F6FC',
+          color: '#e5e2e1',
         }}
       >
-        Page not found
+        Page Not Found
       </h1>
-      <p style={{ color: '#8B949E', marginBottom: '2rem', maxWidth: 400 }}>
-        The page you&apos;re looking for doesn&apos;t exist. Head back to the portfolio.
+      <p style={{ color: '#d3c4b8', marginBottom: '2rem', maxWidth: 400, fontSize: '0.95rem', lineHeight: 1.5 }}>
+        The page you are looking for does not exist or has been relocated.
       </p>
       <Link
         href="/"
+        className="btn-primary"
         style={{
           display: 'inline-flex',
           alignItems: 'center',
           gap: 8,
-          padding: '12px 24px',
-          background: 'linear-gradient(135deg, #3B82F6, #8B5CF6)',
-          color: 'white',
-          borderRadius: 12,
-          fontWeight: 600,
           textDecoration: 'none',
-          fontSize: '0.9rem',
         }}
       >
         ← Back to Portfolio

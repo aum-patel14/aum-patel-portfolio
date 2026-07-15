@@ -1,137 +1,163 @@
 'use client'
 import { motion } from 'framer-motion'
+import { Briefcase, GraduationCap } from 'lucide-react'
 import SectionHeader from './ui/SectionHeader'
-import { timeline } from '@/lib/data'
-
-const typeColors: Record<string, string> = {
-  experience: '#22c55e',
-  education: '#3b82f6',
-  project: '#8b5cf6',
-  certification: '#06b6d4',
-  achievement: '#f59e0b',
-  future: 'rgba(255,255,255,0.25)',
-}
-
-const typeLabels: Record<string, string> = {
-  experience: 'Work Experience',
-  education: 'Education',
-  project: 'Project',
-  certification: 'Certification',
-  achievement: 'Achievement',
-  future: 'Goal',
-}
 
 export default function Experience() {
-  return (
-    <section id="experience" className="section-padding relative overflow-hidden">
-      <div
-        className="absolute inset-x-0 top-0 h-px"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)' }}
-      />
+  const experiences = [
+    {
+      year: 'Mar 2024 – Jul 2025',
+      title: 'QA Tester & Data Analyst',
+      subtitle: 'Apollo Tyres Ltd.',
+      description: 'Worked for 1.5 years performing software QA testing on enterprise inventory and logistics software. Extracted manufacturing logs, analyzed product defect rates, built dynamic metrics dashboards, and delivered structured QA and analytics insights to senior operational management.',
+      tags: ['QA Testing', 'Data Analysis', 'Excel', 'Reporting', 'Defect Tracking', 'Manufacturing Metrics']
+    },
+    {
+      year: '2026 & Beyond',
+      title: 'Target: Dedicated Data Analyst',
+      subtitle: 'Professional Goal',
+      description: 'Leveraging my analytical rigor from Apollo Tyres and solid coding foundation to land a full-time, high-impact Data Analyst, Business Intelligence Engineer, or Analytics Consultant role.',
+      tags: ['Business Intelligence', 'Data Strategy', 'Data Engineering', 'Full-time']
+    }
+  ]
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+  const education = [
+    {
+      year: '2024 – 2027 (Expected)',
+      title: 'B.Tech in Computer Science & Engineering',
+      subtitle: 'Parul University, Vadodara',
+      description: 'Pursuing advanced computational theory, data systems, and system design, while deepening expertise in data science, predictive analytics, and machine learning pipelines.',
+      tags: ['Computer Science', 'Machine Learning', 'Data Pipelines', 'Advanced Engineering']
+    },
+    {
+      year: '2024 – 2025',
+      title: 'Core Analytics & Web Architect',
+      subtitle: 'Advanced Machine Learning & Web App Development',
+      description: 'Developed a real-time customer behavior segmentation system using Scikit-learn and designed ChessMaster Pro, an interactive, full-featured web-based chess app powered by React 19 and Stockfish AI.',
+      tags: ['React 19', 'Stockfish WASM', 'Scikit-learn', 'Firebase', 'Python']
+    },
+    {
+      year: '2021 – 2024',
+      title: 'Diploma in Computer Engineering',
+      subtitle: 'Parul University, Vadodara',
+      description: 'Acquired core hardware and software fundamentals, relational databases (DBMS), data structures, and computer programming (Java, C/C++).',
+      tags: ['DBMS', 'Data Structures', 'Java', 'C/C++']
+    }
+  ]
+
+  return (
+    <section id="experience" className="section-padding bg-background relative overflow-hidden">
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <SectionHeader
           tag="// My Journey"
-          title="Learning Timeline"
-          subtitle="How I've grown as a data analyst — from Python basics to real-world analytics projects"
+          title="Experience & Education"
+          subtitle="A structured timeline of my professional work and educational background"
         />
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Center line */}
-          <div className="timeline-line hidden md:block" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mt-12">
+          
+          {/* Column 1 — Professional Experience */}
+          <div className="space-y-8">
+            <div className="flex items-center gap-3 pb-3 border-b border-[#2D2D2D]">
+              <Briefcase className="w-5 h-5 text-primary" />
+              <h2 className="font-serif text-xl sm:text-2xl text-text-primary">
+                Professional Experience
+              </h2>
+            </div>
 
-          <div className="space-y-12">
-            {timeline.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className={`relative flex items-start gap-6 md:gap-0 ${
-                  item.side === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'
-                }`}
-              >
-                {/* Content */}
-                <div
-                  className={`flex-1 md:max-w-[calc(50%-48px)] ${
-                    item.side === 'right'
-                      ? 'md:pl-12 lg:pl-16'
-                      : 'md:pr-12 lg:pr-16 md:text-right'
-                  }`}
+            <div className="relative pl-6 border-l border-[#2D2D2D] space-y-10">
+              {experiences.map((exp, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="relative group"
                 >
-                  <motion.div
-                    whileHover={{ y: -4 }}
-                    transition={{ duration: 0.25 }}
-                    className="glass-card p-6"
-                  >
-                    {/* Type badge + year */}
-                    <div
-                      className={`flex items-center gap-2 mb-3 ${
-                        item.side === 'right' || item.side === 'left' && false
-                          ? ''
-                          : 'md:justify-end'
-                      }`}
-                    >
-                      <span
-                        className="inline-block px-2 py-0.5 rounded-md text-xs font-medium"
-                        style={{
-                          background: 'rgba(255,255,255,0.05)',
-                          color: 'var(--text-secondary)',
-                          border: '1px solid rgba(255,255,255,0.08)',
-                          fontFamily: 'var(--font-jetbrains)',
-                        }}
-                      >
-                        {typeLabels[item.type]}
+                  {/* Custom Gold Dot Indicator */}
+                  <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-surface border-2 border-primary group-hover:bg-primary transition-all duration-300" />
+                  
+                  <span className="font-mono text-[10px] tracking-wider uppercase text-primary font-semibold block mb-1">
+                    {exp.year}
+                  </span>
+                  
+                  <h3 className="font-sans font-bold text-lg text-text-primary mb-0.5 group-hover:text-primary transition-colors duration-300">
+                    {exp.title}
+                  </h3>
+                  
+                  <h4 className="text-sm font-medium text-text-secondary mb-3">
+                    {exp.subtitle}
+                  </h4>
+                  
+                  <p className="text-text-secondary text-sm leading-relaxed mb-4">
+                    {exp.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5">
+                    {exp.tags.map(tag => (
+                      <span key={tag} className="tech-tag">
+                        {tag}
                       </span>
-                      <span
-                        className="text-xs font-semibold text-white"
-                        style={{
-                          fontFamily: 'var(--font-jetbrains)',
-                        }}
-                      >
-                        {item.year}
-                      </span>
-                    </div>
-
-                    <h3
-                      className="font-outfit font-bold text-lg text-text-primary mb-1"
-                      style={{ fontFamily: 'var(--font-outfit)' }}
-                    >
-                      {item.title}
-                    </h3>
-                    <p
-                      className="text-sm font-medium mb-3 text-text-secondary"
-                    >
-                      {item.subtitle}
-                    </p>
-                    <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                      {item.description}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5 justify-start md:group-hover:justify-end">
-                      {item.tags.map(tag => (
-                        <span key={tag} className="tech-tag">{tag}</span>
-                      ))}
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Dot (center) */}
-                <div className="relative z-10 flex-shrink-0 hidden md:flex items-center justify-center w-24">
-                  <div className="timeline-dot" style={{
-                    background: item.type === 'future' ? '#27272a' : '#ffffff',
-                    boxShadow: item.type === 'future'
-                      ? 'none'
-                      : '0 0 0 4px rgba(255,255,255,0.1), 0 0 15px rgba(255,255,255,0.3)',
-                  }} />
-                </div>
-
-                {/* Empty spacer for opposite side */}
-                <div className="flex-1 hidden md:block" />
-              </motion.div>
-            ))}
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
+
+          {/* Column 2 — Education & Learning */}
+          <div className="space-y-8">
+            <div className="flex items-center gap-3 pb-3 border-b border-[#2D2D2D]">
+              <GraduationCap className="w-5 h-5 text-primary" />
+              <h2 className="font-serif text-xl sm:text-2xl text-text-primary">
+                Education & Learning
+              </h2>
+            </div>
+
+            <div className="relative pl-6 border-l border-[#2D2D2D] space-y-10">
+              {education.map((edu, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="relative group"
+                >
+                  {/* Custom Gold Dot Indicator */}
+                  <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-surface border-2 border-primary group-hover:bg-primary transition-all duration-300" />
+                  
+                  <span className="font-mono text-[10px] tracking-wider uppercase text-primary font-semibold block mb-1">
+                    {edu.year}
+                  </span>
+                  
+                  <h3 className="font-sans font-bold text-lg text-text-primary mb-0.5 group-hover:text-primary transition-colors duration-300">
+                    {edu.title}
+                  </h3>
+                  
+                  <h4 className="text-sm font-medium text-text-secondary mb-3">
+                    {edu.subtitle}
+                  </h4>
+                  
+                  <p className="text-text-secondary text-sm leading-relaxed mb-4">
+                    {edu.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5">
+                    {edu.tags.map(tag => (
+                      <span key={tag} className="tech-tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
