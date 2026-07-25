@@ -4,12 +4,12 @@ import { Download, FileText, Eye, CheckCircle } from 'lucide-react'
 import SectionHeader from './ui/SectionHeader'
 
 const resumeHighlights = [
-  'Python, SQL, Excel, Power BI, Tableau',
-  'Data cleaning, EDA, and statistical visualization',
-  'Dynamic dashboard architecture & BI reporting',
-  'Machine learning classification & user segmentation',
-  'Statistical storytelling & database administration',
-  '1.5 Years professional QA & Data Analytics experience',
+  'TypeScript, JavaScript, React 19, Next.js, Tailwind CSS',
+  'Responsive web design & modern layouts (CSS Grid/Flexbox)',
+  'Aesthetic animations (Framer Motion, Anime.js, SVG paths)',
+  'Cross-browser UI compatibility, testing & site optimization',
+  'Interactive client interfaces & RESTful state integrations',
+  '1.5 Years professional UI/UX QA & layout verification experience',
 ]
 
 export default function Resume() {
@@ -21,7 +21,7 @@ export default function Resume() {
         <SectionHeader
           tag="// Resume"
           title="My Resume"
-          subtitle="A summary of my core data capabilities and research projects"
+          subtitle="A summary of my core UI engineering capabilities and projects"
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mt-12">

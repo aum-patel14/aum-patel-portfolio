@@ -36,17 +36,17 @@ export default function About() {
               className="space-y-6 text-text-secondary text-base sm:text-lg leading-relaxed font-sans"
             >
               <p>
-                I&apos;m <span className="text-text-primary font-semibold">Aum Patel</span>, an aspiring 
-                Data Analyst currently pursuing my B.Tech in Computer Science & Engineering at Parul University.
+                I&apos;m <span className="text-text-primary font-semibold">Aum Patel</span>, a passionate 
+                Frontend Developer currently pursuing my B.Tech in Computer Science & Engineering at Parul University.
               </p>
               <p>
-                My professional experience includes <span className="text-text-primary font-medium">1.5 years as a QA Tester & Data Analyst at Apollo Tyres</span>. 
-                This tenure trained me to approach data with extreme precision—validating software systems, analyzing process defect logs, and delivering visual dashboards that helped management identify operational waste.
+                My professional experience includes <span className="text-text-primary font-medium">1.5 years as a QA Tester & UI Analyst at Apollo Tyres</span>. 
+                This tenure trained me to design interfaces with extreme precision—ensuring cross-browser compatibility, auditing usability layouts, and collaborating with frontend teams to ship high-quality products.
               </p>
               <p>
-                Today, I build data pipelines, write optimized analytical SQL, and engineer web tools like 
-                <span className="text-text-primary font-medium"> ChessMaster Pro</span>. I enjoy working at 
-                the intersection of logic, statistics, and business strategy.
+                Today, I build optimized web applications, structure clean responsive layouts, and design physics-based 
+                micro-animations like the ones in <span className="text-text-primary font-medium">ChessMaster Pro</span>. I enjoy working at 
+                the intersection of layout architecture, clean code, and interactive visual aesthetics.
               </p>
             </motion.div>
           </div>

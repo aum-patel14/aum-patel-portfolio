@@ -40,7 +40,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-text-secondary text-sm leading-relaxed max-w-xs font-sans">
-              Aspiring Data Analyst from Gujarat, India. Transforming raw logs and business metrics into structured insights and storytelling.
+              Frontend Developer from Gujarat, India. Crafting high-performance user interfaces and responsive web experiences.
             </p>
           </div>
 

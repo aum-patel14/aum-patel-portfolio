@@ -8,17 +8,17 @@ export default function Experience() {
   const experiences = [
     {
       year: 'Mar 2024 – Jul 2025',
-      title: 'QA Tester & Data Analyst',
+      title: 'QA Tester & UI Analyst',
       subtitle: 'Apollo Tyres Ltd.',
-      description: 'Worked for 1.5 years performing software QA testing on enterprise inventory and logistics software. Extracted manufacturing logs, analyzed product defect rates, built dynamic metrics dashboards, and delivered structured QA and analytics insights to senior operational management.',
-      tags: ['QA Testing', 'Data Analysis', 'Excel', 'Reporting', 'Defect Tracking', 'Manufacturing Metrics']
+      description: 'Performed rigorous software QA testing on enterprise inventory and logistics software. Focused on UI/UX cross-browser compatibility, usability audits, automated regression testing, and worked closely with frontend engineering teams to squash layout defects.',
+      tags: ['UI/UX QA', 'Cross-browser Testing', 'Defect Tracking', 'Usability Audits', 'Automated Testing']
     },
     {
       year: '2026 & Beyond',
-      title: 'Target: Dedicated Data Analyst',
+      title: 'Target: Dedicated Frontend Developer',
       subtitle: 'Professional Goal',
-      description: 'Leveraging my analytical rigor from Apollo Tyres and solid coding foundation to land a full-time, high-impact Data Analyst, Business Intelligence Engineer, or Analytics Consultant role.',
-      tags: ['Business Intelligence', 'Data Strategy', 'Data Engineering', 'Full-time']
+      description: 'Leveraging my detail-oriented UI QA background from Apollo Tyres and strong React/Next.js foundation to land a high-impact Frontend Developer or UI Engineer role.',
+      tags: ['React Developer', 'UI Engineer', 'Next.js specialist', 'Full-time']
     }
   ]
 
@@ -27,22 +27,22 @@ export default function Experience() {
       year: '2024 – 2027 (Expected)',
       title: 'B.Tech in Computer Science & Engineering',
       subtitle: 'Parul University, Vadodara',
-      description: 'Pursuing advanced computational theory, data systems, and system design, while deepening expertise in data science, predictive analytics, and machine learning pipelines.',
-      tags: ['Computer Science', 'Machine Learning', 'Data Pipelines', 'Advanced Engineering']
+      description: 'Pursuing advanced computational theory, human-computer interaction (HCI), frontend systems engineering, and modern web applications architecture.',
+      tags: ['Computer Science', 'Frontend Architecture', 'Human-Computer Interaction', 'Systems Design']
     },
     {
       year: '2024 – 2025',
-      title: 'Core Analytics & Web Architect',
-      subtitle: 'Advanced Machine Learning & Web App Development',
-      description: 'Developed a real-time customer behavior segmentation system using Scikit-learn and designed ChessMaster Pro, an interactive, full-featured web-based chess app powered by React 19 and Stockfish AI.',
-      tags: ['React 19', 'Stockfish WASM', 'Scikit-learn', 'Firebase', 'Python']
+      title: 'Core Web Architect & UI Designer',
+      subtitle: 'Advanced Web Applications Development',
+      description: 'Designed and built ChessMaster Pro, an interactive, full-featured web-based chess app powered by React 19 and Stockfish AI, alongside custom-crafted UI design systems.',
+      tags: ['React 19', 'Next.js', 'Stockfish WASM', 'Framer Motion', 'TailwindCSS']
     },
     {
       year: '2021 – 2024',
       title: 'Diploma in Computer Engineering',
       subtitle: 'Parul University, Vadodara',
-      description: 'Acquired core hardware and software fundamentals, relational databases (DBMS), data structures, and computer programming (Java, C/C++).',
-      tags: ['DBMS', 'Data Structures', 'Java', 'C/C++']
+      description: 'Acquired core programming fundamentals, data structures, algorithm optimization, and software development lifecycles.',
+      tags: ['Data Structures', 'Java', 'C/C++', 'Relational Databases']
     }
   ]
 
@@ -77,7 +77,7 @@ export default function Experience() {
           
           {/* Column 1 — Professional Experience */}
           <div className="space-y-8">
-            <div className="flex items-center gap-3 pb-3 border-b border-[#2D2D2D]">
+            <div className="flex items-center gap-3 pb-3 border-b border-border">
               <Briefcase className="w-5 h-5 text-primary" />
               <h2 className="font-serif text-xl sm:text-2xl text-text-primary">
                 Professional Experience
@@ -87,7 +87,7 @@ export default function Experience() {
             {/* Scroll-drawn vertical timeline line */}
             <div ref={col1Ref} className="relative pl-6 space-y-10">
               {/* Background trace line */}
-              <div className="absolute left-0 top-2 bottom-2 w-px bg-[#2D2D2D]" />
+              <div className="absolute left-0 top-2 bottom-2 w-px bg-border" />
               {/* Foreground animated line */}
               <motion.div 
                 style={{ scaleY: scaleY1 }}
@@ -136,7 +136,7 @@ export default function Experience() {
 
           {/* Column 2 — Education & Learning */}
           <div className="space-y-8">
-            <div className="flex items-center gap-3 pb-3 border-b border-[#2D2D2D]">
+            <div className="flex items-center gap-3 pb-3 border-b border-border">
               <GraduationCap className="w-5 h-5 text-primary" />
               <h2 className="font-serif text-xl sm:text-2xl text-text-primary">
                 Education & Learning
@@ -146,7 +146,7 @@ export default function Experience() {
             {/* Scroll-drawn vertical timeline line */}
             <div ref={col2Ref} className="relative pl-6 space-y-10">
               {/* Background trace line */}
-              <div className="absolute left-0 top-2 bottom-2 w-px bg-[#2D2D2D]" />
+              <div className="absolute left-0 top-2 bottom-2 w-px bg-border" />
               {/* Foreground animated line */}
               <motion.div 
                 style={{ scaleY: scaleY2 }}

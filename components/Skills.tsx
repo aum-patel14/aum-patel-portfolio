@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Layers, Cpu, Code, Terminal, Globe, Braces, Paintbrush, Play, Activity, Github
@@ -50,6 +50,11 @@ const barVariants = {
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState('all')
   const [viewMode, setViewMode] = useState<'bar' | 'radar'>('bar')
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const filtered = activeCategory === 'all'
     ? skills
@@ -207,6 +212,11 @@ export default function Skills() {
                 )
               })}
             </motion.div>
+          ) : !mounted ? (
+            <div className="bento-card p-6 sm:p-8 flex flex-col items-center justify-center max-w-2xl mx-auto w-full h-[440px] border border-border bg-surface-container-low animate-pulse">
+              <div className="w-1/3 h-6 bg-[#27272a]/50 rounded mb-6" />
+              <div className="w-48 h-48 rounded-full border-4 border-[#27272a]/20" />
+            </div>
           ) : (
             <motion.div
               key="radar-chart"

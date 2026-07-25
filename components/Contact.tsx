@@ -66,7 +66,7 @@ export default function Contact() {
         <SectionHeader
           tag="// Get in Touch"
           title="Contact Me"
-          subtitle="Open to data analyst roles, technical collaborations, and dashboard consultations"
+          subtitle="Open to frontend developer roles, technical collaborations, and UI engineering consultations"
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mt-12">

@@ -24,38 +24,37 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Aum Patel | Data Analyst — Transforming Data into Insights',
+  title: 'Aum Patel | Frontend Developer — High-Performance Interfaces',
   description:
-    'Aum Patel — Aspiring Data Analyst from Gujarat, India. Specializing in Python, SQL, Power BI, Tableau, and dashboard analytics. Building data-driven solutions for real-world problems.',
+    'Aum Patel — Frontend Developer from Gujarat, India. Specializing in TypeScript, React, Next.js, Tailwind CSS, and Framer Motion. Building clean, high-performance web applications.',
   keywords: [
     'Aum Patel',
-    'Data Analyst',
-    'Python',
-    'SQL',
-    'Power BI',
-    'Tableau',
-    'Data Visualization',
+    'Frontend Developer',
+    'UI Engineer',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'TailwindCSS',
+    'Framer Motion',
+    'Web Developer',
     'Gujarat',
     'India',
-    'Analytics',
-    'Dashboard',
-    'Business Intelligence',
   ],
   authors: [{ name: 'Aum Patel' }],
   creator: 'Aum Patel',
   openGraph: {
     type: 'profile',
-    title: 'Aum Patel | Data Analyst',
+    title: 'Aum Patel | Frontend Developer',
     description:
-      'Aspiring Data Analyst passionate about Python, SQL, dashboards, and transforming raw data into actionable insights.',
+      'Frontend Developer passionate about TypeScript, React, Next.js, and interactive visual aesthetics.',
     siteName: 'Aum Patel Portfolio',
     locale: 'en_IN',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Aum Patel | Data Analyst',
+    title: 'Aum Patel | Frontend Developer',
     description:
-      'Aspiring Data Analyst — Python · SQL · Power BI · Tableau · Analytics',
+      'Frontend Developer — TypeScript · React · Next.js · TailwindCSS · Animation',
   },
   robots: {
     index: true,
