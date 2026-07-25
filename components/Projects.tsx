@@ -59,7 +59,7 @@ export default function Projects() {
       <div
         className="absolute right-0 top-1/3 w-[600px] h-[600px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(200, 162, 124, 0.012) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(143, 188, 143, 0.012) 0%, transparent 70%)',
           filter: 'blur(60px)',
         }}
       />

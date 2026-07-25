@@ -4,7 +4,7 @@ export default function Loading() {
       style={{
         position: 'fixed',
         inset: 0,
-        background: '#131313',
+        background: '#0C0E0C',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -19,17 +19,17 @@ export default function Loading() {
           width: 48,
           height: 48,
           borderRadius: 8,
-          background: '#c8a27c',
+          background: 'var(--accent-gold)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          boxShadow: '0 8px 24px rgba(200,162,124,0.15)',
+          boxShadow: '0 8px 24px rgba(143,188,143,0.15)',
         }}
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <rect x="3" y="14" width="4" height="7" rx="1" fill="#131313" opacity="0.6" />
-          <rect x="10" y="9" width="4" height="12" rx="1" fill="#131313" opacity="0.8" />
-          <rect x="17" y="3" width="4" height="18" rx="1" fill="#131313" />
+          <rect x="3" y="14" width="4" height="7" rx="1" fill="#0C0E0C" opacity="0.6" />
+          <rect x="10" y="9" width="4" height="12" rx="1" fill="#0C0E0C" opacity="0.8" />
+          <rect x="17" y="3" width="4" height="18" rx="1" fill="#0C0E0C" />
         </svg>
       </div>
 
@@ -40,7 +40,7 @@ export default function Loading() {
 
       <p
         style={{
-          color: '#9b8e84',
+          color: 'var(--text-muted)',
           fontSize: '0.72rem',
           letterSpacing: '0.12em',
           textTransform: 'uppercase',

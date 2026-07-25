@@ -9,8 +9,8 @@ export default function NotFound() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        background: '#131313',
-        color: '#e5e2e1',
+        background: '#0C0E0C',
+        color: 'var(--text-primary)',
         fontFamily: 'var(--font-hanken), sans-serif',
         textAlign: 'center',
         padding: '2rem',
@@ -21,7 +21,7 @@ export default function NotFound() {
           fontSize: '7rem',
           fontWeight: 700,
           fontFamily: 'var(--font-playfair), serif',
-          color: '#c8a27c',
+          color: 'var(--accent-gold)',
           lineHeight: 1,
           marginBottom: '1.5rem',
         }}
@@ -33,12 +33,12 @@ export default function NotFound() {
           fontSize: '1.5rem',
           fontWeight: 600,
           marginBottom: '0.75rem',
-          color: '#e5e2e1',
+          color: 'var(--text-primary)',
         }}
       >
         Page Not Found
       </h1>
-      <p style={{ color: '#d3c4b8', marginBottom: '2rem', maxWidth: 400, fontSize: '0.95rem', lineHeight: 1.5 }}>
+      <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem', maxWidth: 400, fontSize: '0.95rem', lineHeight: 1.5 }}>
         The page you are looking for does not exist or has been relocated.
       </p>
       <Link
