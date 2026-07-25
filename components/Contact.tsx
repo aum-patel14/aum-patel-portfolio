@@ -1,9 +1,10 @@
 'use client'
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Mail, Linkedin, Github, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react'
 import SectionHeader from './ui/SectionHeader'
 import { personalInfo } from '@/lib/data'
+import { animate } from 'animejs'
 
 const socialLinks = [
   { icon: Github, label: 'GitHub', href: personalInfo.github, handle: 'aum-patel14' },
@@ -14,6 +15,8 @@ const socialLinks = [
 export default function Contact() {
   const [formState, setFormState] = useState({ name: '', email: '', subject: '', message: '' })
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [focusedField, setFocusedField] = useState<string | null>(null)
+  const [showSuccessCheck, setShowSuccessCheck] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -22,11 +25,30 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('sending')
-    await new Promise(resolve => setTimeout(resolve, 1200))
+    await new Promise(resolve => setTimeout(resolve, 1400))
     setStatus('success')
     setFormState({ name: '', email: '', subject: '', message: '' })
-    setTimeout(() => setStatus('idle'), 4000)
+    
+    // Draw in checkmark SVG
+    setShowSuccessCheck(true)
+
+    // Revert checkmark to normal submit button after 2.2 seconds
+    setTimeout(() => {
+      setShowSuccessCheck(false)
+      setStatus('idle')
+    }, 2200)
   }
+
+  // Anime.js Success Checkmark path draw-in effect
+  useEffect(() => {
+    if (showSuccessCheck) {
+      animate('.success-checkmark-svg path', {
+        strokeDashoffset: [32, 0],
+        ease: 'outQuad',
+        duration: 700
+      })
+    }
+  }, [showSuccessCheck])
 
   return (
     <section id="contact" className="section-padding bg-background relative overflow-hidden">
@@ -125,90 +147,144 @@ export default function Contact() {
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">
+                
+                {/* Name & Email (Grid Layout) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="font-mono text-[9px] tracking-widest text-text-muted uppercase mb-1.5 block">
-                      Your Name
-                    </label>
+                  
+                  {/* Name field (Floating Label) */}
+                  <div className="relative group pt-4">
                     <input
                       type="text"
                       name="name"
                       value={formState.name}
+                      onFocus={() => setFocusedField('name')}
+                      onBlur={() => setFocusedField(null)}
                       onChange={handleChange}
-                      placeholder="John Doe"
                       required
-                      className="form-input"
+                      placeholder=" "
+                      className="w-full bg-transparent border-b border-border/80 py-2.5 text-text-primary outline-none focus:border-primary transition-colors duration-300 placeholder-transparent"
+                      id="name-input"
                     />
-                  </div>
-                  <div>
-                    <label className="font-mono text-[9px] tracking-widest text-text-muted uppercase mb-1.5 block">
-                      Email Address
+                    <label 
+                      htmlFor="name-input"
+                      className={`absolute left-0 pointer-events-none transition-all duration-300 font-sans ${
+                        focusedField === 'name' || formState.name
+                          ? 'top-0 text-[10px] tracking-widest text-primary uppercase font-mono'
+                          : 'top-5 text-sm text-text-muted'
+                      }`}
+                    >
+                      Your Name
                     </label>
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary scale-x-0 group-focus-within:scale-x-100 transition-transform duration-300 origin-left" />
+                  </div>
+
+                  {/* Email field (Floating Label) */}
+                  <div className="relative group pt-4">
                     <input
                       type="email"
                       name="email"
                       value={formState.email}
+                      onFocus={() => setFocusedField('email')}
+                      onBlur={() => setFocusedField(null)}
                       onChange={handleChange}
-                      placeholder="john@company.com"
                       required
-                      className="form-input"
+                      placeholder=" "
+                      className="w-full bg-transparent border-b border-border/80 py-2.5 text-text-primary outline-none focus:border-primary transition-colors duration-300 placeholder-transparent"
+                      id="email-input"
                     />
+                    <label 
+                      htmlFor="email-input"
+                      className={`absolute left-0 pointer-events-none transition-all duration-300 font-sans ${
+                        focusedField === 'email' || formState.email
+                          ? 'top-0 text-[10px] tracking-widest text-primary uppercase font-mono'
+                          : 'top-5 text-sm text-text-muted'
+                      }`}
+                    >
+                      Email Address
+                    </label>
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary scale-x-0 group-focus-within:scale-x-100 transition-transform duration-300 origin-left" />
                   </div>
+
                 </div>
 
-                <div>
-                  <label className="font-mono text-[9px] tracking-widest text-text-muted uppercase mb-1.5 block">
-                    Subject
-                  </label>
+                {/* Subject field (Floating Label) */}
+                <div className="relative group pt-4">
                   <input
                     type="text"
                     name="subject"
                     value={formState.subject}
+                    onFocus={() => setFocusedField('subject')}
+                    onBlur={() => setFocusedField(null)}
                     onChange={handleChange}
-                    placeholder="Project Inquiry / Hiring"
-                    className="form-input"
+                    placeholder=" "
+                    className="w-full bg-transparent border-b border-border/80 py-2.5 text-text-primary outline-none focus:border-primary transition-colors duration-300 placeholder-transparent"
+                    id="subject-input"
                   />
+                  <label 
+                    htmlFor="subject-input"
+                    className={`absolute left-0 pointer-events-none transition-all duration-300 font-sans ${
+                      focusedField === 'subject' || formState.subject
+                        ? 'top-0 text-[10px] tracking-widest text-primary uppercase font-mono'
+                        : 'top-5 text-sm text-text-muted'
+                    }`}
+                  >
+                    Subject
+                  </label>
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary scale-x-0 group-focus-within:scale-x-100 transition-transform duration-300 origin-left" />
                 </div>
 
-                <div>
-                  <label className="font-mono text-[9px] tracking-widest text-text-muted uppercase mb-1.5 block">
-                    Message
-                  </label>
+                {/* Message field (Floating Label) */}
+                <div className="relative group pt-4">
                   <textarea
                     name="message"
                     value={formState.message}
+                    onFocus={() => setFocusedField('message')}
+                    onBlur={() => setFocusedField(null)}
                     onChange={handleChange}
-                    placeholder="Describe your analytics or project requirements..."
                     required
                     rows={4}
-                    className="form-input resize-none"
+                    placeholder=" "
+                    className="w-full bg-transparent border-b border-border/80 py-2.5 text-text-primary outline-none focus:border-primary transition-colors duration-300 placeholder-transparent resize-none"
+                    id="message-input"
                   />
+                  <label 
+                    htmlFor="message-input"
+                    className={`absolute left-0 pointer-events-none transition-all duration-300 font-sans ${
+                      focusedField === 'message' || formState.message
+                        ? 'top-0 text-[10px] tracking-widest text-primary uppercase font-mono'
+                        : 'top-5 text-sm text-text-muted'
+                    }`}
+                  >
+                    Message
+                  </label>
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary scale-x-0 group-focus-within:scale-x-100 transition-transform duration-300 origin-left" />
                 </div>
 
                 {/* Form Status Messages */}
-                {status === 'success' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-2 p-3 rounded text-sm bg-primary/10 border border-primary/25 text-primary"
-                  >
-                    <CheckCircle className="w-4 h-4" />
-                    Message sent successfully! I will reach out shortly.
-                  </motion.div>
-                )}
-                {status === 'error' && (
-                  <div className="flex items-center gap-2 p-3 rounded text-sm bg-red-950/20 border border-red-500/25 text-red-400">
-                    <AlertCircle className="w-4 h-4" />
-                    Failed to dispatch message. Please retry.
-                  </div>
-                )}
+                <AnimatePresence>
+                  {status === 'success' && !showSuccessCheck && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      className="flex items-center gap-2 p-3 rounded text-sm bg-primary/10 border border-primary/25 text-primary"
+                    >
+                      <CheckCircle className="w-4 h-4" />
+                      Message sent successfully! I will reach out shortly.
+                    </motion.div>
+                  )}
+                </AnimatePresence>
 
                 <button
                   type="submit"
-                  disabled={status === 'sending'}
-                  className="btn-primary w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed mt-2"
+                  disabled={status === 'sending' || showSuccessCheck}
+                  className="btn-primary w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed mt-2 overflow-hidden relative min-h-[44px]"
                 >
-                  {status === 'sending' ? (
+                  {showSuccessCheck ? (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="success-checkmark-svg text-background">
+                      <path strokeDasharray="32" strokeDashoffset="32" d="M20 6L9 17L4 12" />
+                    </svg>
+                  ) : status === 'sending' ? (
                     <>
                       <div className="w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
                       Sending...

@@ -1,9 +1,19 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useTransform, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
-import { ArrowRight, Download, Mail, Github, Linkedin } from 'lucide-react'
+import { ArrowRight, Download } from 'lucide-react'
 import { personalInfo, heroStats, typewriterRoles } from '@/lib/data'
+import { animate, stagger } from 'animejs'
+import AnimatedCounter from './ui/AnimatedCounter'
+
+const parseStatValue = (valStr: string) => {
+  const num = parseFloat(valStr);
+  const suffix = valStr.replace(/[0-9.]/g, '');
+  const hasDot = valStr.includes('.');
+  const decimals = hasDot ? 1 : 0;
+  return { num, suffix, decimals };
+}
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false)
@@ -12,9 +22,40 @@ export default function Hero() {
   const [isDeleting, setIsDeleting] = useState(false)
   const timeoutRef = useRef<NodeJS.Timeout>()
 
+  const shouldReduceMotion = useReducedMotion()
+
+  // Parallax motion tracking values
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  // Subtle shift range (-12px to +12px), disabled if reduced motion preferred
+  const x = useTransform(mouseX, [-0.5, 0.5], shouldReduceMotion ? [0, 0] : [-12, 12])
+  const y = useTransform(mouseY, [-0.5, 0.5], shouldReduceMotion ? [0, 0] : [-12, 12])
+
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  // Anime.js text reveal on mount
+  useEffect(() => {
+    if (mounted) {
+      if (shouldReduceMotion) {
+        animate('.hero-title-word', {
+          opacity: [0, 1],
+          ease: 'outQuad',
+          duration: 400
+        })
+      } else {
+        animate('.hero-title-word', {
+          opacity: [0, 1],
+          translateY: [25, 0],
+          ease: 'outQuad',
+          duration: 800,
+          delay: stagger(70)
+        })
+      }
+    }
+  }, [mounted, shouldReduceMotion])
 
   useEffect(() => {
     const currentRole = typewriterRoles[roleIndex]
@@ -40,8 +81,26 @@ export default function Hero() {
     return () => clearTimeout(timeoutRef.current)
   }, [displayText, isDeleting, roleIndex])
 
+  const handleMouseMove = (event: React.MouseEvent) => {
+    const rect = event.currentTarget.getBoundingClientRect()
+    const mouseXPosition = (event.clientX - rect.left) / rect.width - 0.5
+    const mouseYPosition = (event.clientY - rect.top) / rect.height - 0.5
+    mouseX.set(mouseXPosition)
+    mouseY.set(mouseYPosition)
+  }
+
+  const handleMouseLeave = () => {
+    mouseX.set(0)
+    mouseY.set(0)
+  }
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-background pt-24 pb-16">
+    <section 
+      id="home" 
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative min-h-screen flex items-center overflow-hidden bg-background pt-24 pb-16"
+    >
       {/* Subtle editorial grid line background */}
       <div className="absolute inset-0 bg-grid pointer-events-none" />
       
@@ -62,16 +121,25 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            {/* Main Editorial Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-serif text-4xl sm:text-5xl lg:text-7xl font-medium leading-[1.1] text-text-primary"
-            >
-              Decoding Data with <br />
-              <span className="text-primary italic font-semibold">Intellectual Authority.</span>
-            </motion.h1>
+            {/* Main Editorial Heading Reveal */}
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl font-medium leading-[1.1] text-text-primary">
+              <span className="inline-block overflow-hidden mr-3">
+                <span className="hero-title-word inline-block opacity-0">Decoding</span>
+              </span>
+              <span className="inline-block overflow-hidden mr-3">
+                <span className="hero-title-word inline-block opacity-0">Data</span>
+              </span>
+              <span className="inline-block overflow-hidden mr-3">
+                <span className="hero-title-word inline-block opacity-0">with</span>
+              </span>
+              <br />
+              <span className="inline-block overflow-hidden mr-3 text-primary italic font-semibold">
+                <span className="hero-title-word inline-block opacity-0">Intellectual</span>
+              </span>
+              <span className="inline-block overflow-hidden text-primary italic font-semibold">
+                <span className="hero-title-word inline-block opacity-0">Authority.</span>
+              </span>
+            </h1>
 
             {/* Interactive Typewriter Role */}
             <motion.div
@@ -99,49 +167,77 @@ export default function Hero() {
               executive decision-making and uncover hidden operational efficiencies.
             </motion.p>
 
-            {/* Action Buttons */}
+            {/* Action Buttons with Shimmer Hover Effects */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               className="flex flex-wrap gap-4 pt-4"
             >
-              <a href="#projects" className="btn-primary">
+              <motion.a 
+                href="#projects"
+                className="relative group overflow-hidden border border-primary px-6 py-3 rounded-sm bg-primary text-background font-mono text-xs uppercase tracking-widest font-semibold flex items-center gap-2 shadow-md cursor-pointer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12"
+                  initial={{ left: '-100%' }}
+                  whileHover={{ left: '120%' }}
+                  transition={{ duration: 0.6, ease: 'easeOut' }}
+                />
                 View Research <ArrowRight className="w-4 h-4" />
-              </a>
-              <a href="/resume.pdf" download className="btn-secondary">
-                <Download className="w-4 h-4" />
+              </motion.a>
+
+              <motion.a 
+                href="/resume.pdf"
+                download
+                className="relative group overflow-hidden border border-border px-6 py-3 rounded-sm bg-surface-container-low text-text-primary hover:border-primary/50 font-mono text-xs uppercase tracking-widest font-semibold flex items-center gap-2 cursor-pointer transition-colors duration-300"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -skew-x-12"
+                  initial={{ left: '-100%' }}
+                  whileHover={{ left: '120%' }}
+                  transition={{ duration: 0.6, ease: 'easeOut' }}
+                />
+                <Download className="w-4 h-4 text-primary" />
                 Resume
-              </a>
+              </motion.a>
             </motion.div>
 
-            {/* Stats Grid */}
+            {/* Stats Grid placeholder (Redesigned in Step 2) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
               className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8"
             >
-              {heroStats.map((stat, i) => (
-                <div 
-                  key={stat.label}
-                  className="border border-border p-4 rounded bg-surface-container-low text-center hover:border-primary/40 transition-all duration-300"
-                >
-                  <div className="font-serif text-2xl sm:text-3xl font-bold text-primary">
-                    {stat.value}
+              {heroStats.map((stat, i) => {
+                const { num, suffix, decimals } = parseStatValue(stat.value);
+                return (
+                  <div 
+                    key={stat.label}
+                    className="border border-border p-4 rounded bg-surface-container-low text-center hover:border-primary/40 transition-all duration-300"
+                  >
+                    <div className="font-serif text-2xl sm:text-3xl font-bold text-primary">
+                      <AnimatedCounter value={num} suffix={suffix} decimals={decimals} />
+                    </div>
+                    <div className="font-mono text-[9px] tracking-wider uppercase text-on-surface-variant mt-1.5">
+                      {stat.label}
+                    </div>
                   </div>
-                  <div className="font-mono text-[9px] tracking-wider uppercase text-on-surface-variant mt-1.5">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </motion.div>
             
           </div>
 
-          {/* Right — Profile Visual (Spans 5 columns on desktop) */}
+          {/* Right — Profile Visual (Spans 5 columns on desktop) with Mouse Parallax */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <motion.div
+              style={{ x, y }}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.3 }}

@@ -1,5 +1,6 @@
 'use client'
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { Briefcase, GraduationCap } from 'lucide-react'
 import SectionHeader from './ui/SectionHeader'
 
@@ -45,6 +46,22 @@ export default function Experience() {
     }
   ]
 
+  // Refs for tracking scroll path drawing
+  const col1Ref = useRef<HTMLDivElement>(null)
+  const col2Ref = useRef<HTMLDivElement>(null)
+
+  const { scrollYProgress: col1Progress } = useScroll({
+    target: col1Ref,
+    offset: ["start end", "end center"]
+  })
+  const scaleY1 = useTransform(col1Progress, [0, 0.95], [0, 1])
+
+  const { scrollYProgress: col2Progress } = useScroll({
+    target: col2Ref,
+    offset: ["start end", "end center"]
+  })
+  const scaleY2 = useTransform(col2Progress, [0, 0.95], [0, 1])
+
   return (
     <section id="experience" className="section-padding bg-background relative overflow-hidden">
       
@@ -67,7 +84,16 @@ export default function Experience() {
               </h2>
             </div>
 
-            <div className="relative pl-6 border-l border-[#2D2D2D] space-y-10">
+            {/* Scroll-drawn vertical timeline line */}
+            <div ref={col1Ref} className="relative pl-6 space-y-10">
+              {/* Background trace line */}
+              <div className="absolute left-0 top-2 bottom-2 w-px bg-[#2D2D2D]" />
+              {/* Foreground animated line */}
+              <motion.div 
+                style={{ scaleY: scaleY1 }}
+                className="absolute left-0 top-2 bottom-2 w-px bg-primary origin-top"
+              />
+
               {experiences.map((exp, idx) => (
                 <motion.div
                   key={idx}
@@ -78,7 +104,7 @@ export default function Experience() {
                   className="relative group"
                 >
                   {/* Custom Gold Dot Indicator */}
-                  <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-surface border-2 border-primary group-hover:bg-primary transition-all duration-300" />
+                  <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-surface border-2 border-primary group-hover:bg-primary transition-all duration-300 z-10" />
                   
                   <span className="font-mono text-[10px] tracking-wider uppercase text-primary font-semibold block mb-1">
                     {exp.year}
@@ -117,7 +143,16 @@ export default function Experience() {
               </h2>
             </div>
 
-            <div className="relative pl-6 border-l border-[#2D2D2D] space-y-10">
+            {/* Scroll-drawn vertical timeline line */}
+            <div ref={col2Ref} className="relative pl-6 space-y-10">
+              {/* Background trace line */}
+              <div className="absolute left-0 top-2 bottom-2 w-px bg-[#2D2D2D]" />
+              {/* Foreground animated line */}
+              <motion.div 
+                style={{ scaleY: scaleY2 }}
+                className="absolute left-0 top-2 bottom-2 w-px bg-primary origin-top"
+              />
+
               {education.map((edu, idx) => (
                 <motion.div
                   key={idx}
@@ -128,7 +163,7 @@ export default function Experience() {
                   className="relative group"
                 >
                   {/* Custom Gold Dot Indicator */}
-                  <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-surface border-2 border-primary group-hover:bg-primary transition-all duration-300" />
+                  <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-surface border-2 border-primary group-hover:bg-primary transition-all duration-300 z-10" />
                   
                   <span className="font-mono text-[10px] tracking-wider uppercase text-primary font-semibold block mb-1">
                     {edu.year}
