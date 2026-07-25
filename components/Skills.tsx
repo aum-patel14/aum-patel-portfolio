@@ -2,25 +2,22 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  BarChart2, Database, Grid3X3, PieChart, Layers,
-  Cpu, Code, Coffee, Terminal, Globe, Braces
+  Layers, Cpu, Code, Terminal, Globe, Braces, Paintbrush, Play, Activity, Github
 } from 'lucide-react'
 import SectionHeader from './ui/SectionHeader'
 import { skills, skillCategories } from '@/lib/data'
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts'
 
 const iconMap: Record<string, React.ElementType> = {
-  python: Code,
-  database: Database,
-  table: Grid3X3,
-  'bar-chart': BarChart2,
-  'pie-chart': PieChart,
-  layers: Layers,
-  cpu: Cpu,
-  coffee: Coffee,
+  code: Code,
   terminal: Terminal,
   globe: Globe,
-  braces: Braces,
+  layers: Layers,
+  'paint-brush': Paintbrush,
+  play: Play,
+  activity: Activity,
+  github: Github,
+  cpu: Cpu,
 }
 
 // Framer Motion parent/child variants for staggered reveals
@@ -59,10 +56,12 @@ export default function Skills() {
     : skills.filter(s => s.category === activeCategory)
 
   // Aggregate category averages from the raw dataset dynamically
-  const categories = ['languages', 'visualization', 'analytics', 'tools']
+  const categories = ['languages', 'frameworks', 'styling', 'tools']
   const radarData = categories.map(cat => {
     const categorySkills = skills.filter(s => s.category === cat)
-    const avg = categorySkills.reduce((sum, s) => sum + s.percent, 0) / categorySkills.length
+    const avg = categorySkills.length > 0
+      ? categorySkills.reduce((sum, s) => sum + s.percent, 0) / categorySkills.length
+      : 0
     return {
       subject: cat.charAt(0).toUpperCase() + cat.slice(1),
       value: Math.round(avg),
@@ -86,7 +85,7 @@ export default function Skills() {
         <SectionHeader
           tag="// Tech Stack"
           title="Skills & Tools"
-          subtitle="Analytical libraries, database structures, and business intelligence suites"
+          subtitle="Core web technologies, frameworks, and animation libraries"
         />
 
         {/* View Switcher Toggle */}
