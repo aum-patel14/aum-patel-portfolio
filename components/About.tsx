@@ -11,7 +11,7 @@ export default function About() {
       <div
         className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(143, 188, 143, 0.015), transparent 70%)',
+          background: 'radial-gradient(circle, rgba(163, 230, 53, 0.015), transparent 70%)',
           filter: 'blur(60px)',
         }}
       />

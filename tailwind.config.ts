@@ -16,12 +16,17 @@ const config: Config = {
       },
       colors: {
         background: 'var(--background)',
-        surface: 'var(--surface)',
+        foreground: 'var(--text-primary)',
+        muted: 'var(--text-secondary)',
+        accent: 'var(--accent-gold)',
+        border: 'var(--border)',
+        card: 'var(--surface-2)',
+        
+        // standard compatibility aliases
+        primary: 'var(--accent-gold)',
         'surface-container-low': 'var(--surface-2)',
         'surface-container': 'var(--surface-3)',
         'surface-container-high': 'var(--surface-4)',
-        primary: 'var(--accent-gold)',
-        'primary-container': 'var(--accent-gold-light)',
         'text-primary': 'var(--text-primary)',
         'text-secondary': 'var(--text-secondary)',
         'text-muted': 'var(--text-muted)',

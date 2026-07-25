@@ -75,7 +75,7 @@ export default function Skills() {
       <div
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(143, 188, 143, 0.012), transparent 70%)',
+          background: 'radial-gradient(circle, rgba(163, 230, 53, 0.012), transparent 70%)',
           filter: 'blur(60px)',
         }}
       />
@@ -220,16 +220,16 @@ export default function Skills() {
               <div className="w-full h-[360px]">
                 <ResponsiveContainer width="100%" height="100%">
                   <RadarChart cx="50%" cy="50%" outerRadius="75%" data={radarData}>
-                    <PolarGrid stroke="#2D2D2D" />
+                    <PolarGrid stroke="rgba(39, 39, 42, 0.5)" />
                     <PolarAngleAxis 
                       dataKey="subject" 
-                      tick={{ fill: '#d3c4b8', fontSize: 11, fontFamily: 'var(--font-jetbrains)' }} 
+                      tick={{ fill: 'var(--text-secondary)', fontSize: 11, fontFamily: 'var(--font-jetbrains)' }} 
                     />
                     <PolarRadiusAxis 
                       angle={30} 
                       domain={[0, 100]} 
-                      tick={{ fill: '#9b8e84', fontSize: 9 }}
-                      stroke="#2D2D2D"
+                      tick={{ fill: 'var(--text-muted)', fontSize: 9 }}
+                      stroke="rgba(39, 39, 42, 0.5)"
                     />
                     <Radar
                       name="Averages"

@@ -56,7 +56,7 @@ export default function Contact() {
       <div
         className="absolute left-0 bottom-0 w-[500px] h-[500px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(143, 188, 143, 0.012) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(163, 230, 53, 0.012) 0%, transparent 70%)',
           filter: 'blur(65px)',
         }}
       />

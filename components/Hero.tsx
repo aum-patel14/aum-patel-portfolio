@@ -162,9 +162,9 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-text-secondary text-base sm:text-lg leading-relaxed max-w-xl"
             >
-              Transforming raw metrics into strategic insights. I engineer databases, 
-              construct dynamic dashboards, and build analytics pipelines that empower 
-              executive decision-making and uncover hidden operational efficiencies.
+              I build elegant, high-performance web applications with clean typography, 
+              fluid animations, and responsive layouts. Bringing a high-precision testing 
+              mindset to frontend development to ship solid, production-grade products.
             </motion.p>
 
             {/* Action Buttons with Shimmer Hover Effects */}
@@ -186,7 +186,7 @@ export default function Hero() {
                   whileHover={{ left: '120%' }}
                   transition={{ duration: 0.6, ease: 'easeOut' }}
                 />
-                View Research <ArrowRight className="w-4 h-4" />
+                View Projects <ArrowRight className="w-4 h-4" />
               </motion.a>
 
               <motion.a 

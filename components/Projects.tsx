@@ -59,7 +59,7 @@ export default function Projects() {
       <div
         className="absolute right-0 top-1/3 w-[600px] h-[600px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(143, 188, 143, 0.012) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(163, 230, 53, 0.012) 0%, transparent 70%)',
           filter: 'blur(60px)',
         }}
       />
@@ -102,7 +102,7 @@ export default function Projects() {
               >
                 
                 {/* Left/Right Column — Visual (Image Backdrop) */}
-                <div className="w-full lg:w-[45%] h-64 lg:h-auto relative border-b lg:border-b-0 lg:border-r border-[#2D2D2D] overflow-hidden bg-[#0A0A0C]">
+                <div className="w-full lg:w-[45%] h-64 lg:h-auto relative border-b lg:border-b-0 lg:border-r border-border overflow-hidden bg-[#0A0A0C]">
                   <div
                     className="w-full h-full bg-cover bg-center opacity-70 group-hover:opacity-90 group-hover:scale-[1.02] transition-all duration-700"
                     style={{ backgroundImage: `url('${displayImage}')` }}
@@ -129,15 +129,15 @@ export default function Projects() {
                 {/* Content Column */}
                 <div className="p-8 sm:p-12 w-full lg:w-[55%] flex flex-col justify-center space-y-5">
                   <div className="flex flex-wrap items-center gap-4">
-                    <span className="font-mono text-[10px] tracking-widest text-primary uppercase border border-primary/20 px-3 py-1.5 rounded-sm bg-surface-container-high">
-                      {project.category === 'ml' ? 'Machine Learning' : 'Algorithms & Systems'}
+                    <span className="font-mono text-[10px] tracking-widest text-accent uppercase border border-accent/20 px-3 py-1.5 rounded-sm bg-surface-container-high">
+                      {project.category === 'web' ? 'Web Application' : 'UI/UX Design'}
                     </span>
                     <span className="font-mono text-[10px] text-text-muted">
                       {project.id === 1 ? '2023 - 2024' : '2024 - 2025'}
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-2xl sm:text-3xl text-text-primary group-hover:text-primary transition-colors duration-300">
+                  <h3 className="font-serif text-2xl sm:text-3xl text-foreground group-hover:text-accent transition-colors duration-300">
                     {project.title}
                   </h3>
 
@@ -167,7 +167,7 @@ export default function Projects() {
 
                   {/* Metric & Tech Stack Stagger on Hover */}
                   <div className="pt-2 flex flex-wrap gap-2 items-center">
-                    <span className="font-mono text-[11px] text-primary border border-primary/30 px-3 py-1 rounded-sm bg-primary/5 mr-2">
+                    <span className="font-mono text-[11px] text-accent border border-accent/25 px-3 py-1 rounded-sm bg-accent/5 mr-2">
                       {project.metric}
                     </span>
                     <motion.div 
@@ -192,7 +192,7 @@ export default function Projects() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono text-xs uppercase tracking-widest text-text-primary hover:text-primary transition-colors duration-300 flex items-center gap-2"
+                      className="font-mono text-xs uppercase tracking-widest text-foreground hover:text-accent transition-colors duration-300 flex items-center gap-2"
                     >
                       <Github className="w-4 h-4" />
                       View Repository <ArrowRight className="w-3.5 h-3.5" />
@@ -202,7 +202,7 @@ export default function Projects() {
                         href={project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-mono text-xs uppercase tracking-widest text-primary hover:text-primary-container transition-colors duration-300 flex items-center gap-2"
+                        className="font-mono text-xs uppercase tracking-widest text-accent hover:text-accent/80 transition-colors duration-300 flex items-center gap-2"
                       >
                         <ExternalLink className="w-4 h-4" />
                         Live Showcase <ArrowRight className="w-3.5 h-3.5" />
