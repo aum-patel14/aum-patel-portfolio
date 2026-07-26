@@ -80,7 +80,7 @@ export default function Skills() {
       <div
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(163, 230, 53, 0.012), transparent 70%)',
+          background: 'radial-gradient(circle, rgba(37, 99, 235, 0.012), transparent 70%)',
           filter: 'blur(60px)',
         }}
       />

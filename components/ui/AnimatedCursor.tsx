@@ -48,7 +48,7 @@ export default function AnimatedCursor() {
         } else {
           ringRef.current.style.width = '32px'
           ringRef.current.style.height = '32px'
-          ringRef.current.style.borderColor = 'rgba(143, 188, 143, 0.3)'
+          ringRef.current.style.borderColor = 'rgba(37, 99, 235, 0.3)'
           dotRef.current.style.width = '6px'
           dotRef.current.style.height = '6px'
           dotRef.current.style.background = 'var(--accent-gold)'
