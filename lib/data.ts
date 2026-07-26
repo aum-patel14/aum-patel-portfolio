@@ -84,7 +84,7 @@ export const projects: Project[] = [
     icon: 'gamepad',
     accent: 'blue',
     githubUrl: 'https://github.com/aum-patel14/chess-master-app',
-    demoUrl: 'https://aum-patel14.github.io/chess-master-app',
+    demoUrl: 'https://chess-master-app-main.vercel.app/#/',
     featured: true,
   },
   {
