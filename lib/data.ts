@@ -99,7 +99,7 @@ export const projects: Project[] = [
     icon: 'sliders',
     accent: 'green',
     githubUrl: 'https://github.com/aum-patel14/zenflow',
-    demoUrl: '#',
+    demoUrl: 'https://fronted-sage-omega.vercel.app/',
     featured: true,
   },
 ]
