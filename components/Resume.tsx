@@ -58,7 +58,7 @@ export default function Resume() {
               <div className="mb-5">
                 <div className="h-3 rounded-sm mb-3.5 w-20 bg-primary/10" />
                 <div className="flex flex-wrap gap-2">
-                  {['Python', 'SQL', 'Power BI', 'Tableau', 'Excel', 'Pandas', 'NumPy', 'Statistics'].map(s => (
+                  {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Git', 'REST APIs', 'Cross-Browser QA'].map(s => (
                     <div key={s} className="h-5 px-2 rounded-sm bg-surface-container border border-border flex items-center">
                       <span className="text-[10px] font-mono text-text-secondary">{s}</span>
                     </div>

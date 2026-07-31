@@ -117,27 +117,45 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               <span className="font-mono text-xs uppercase tracking-widest text-primary border border-primary/20 px-3.5 py-1.5 rounded-sm bg-surface-container-low">
-                Data Strategy & Analytics
+                Frontend Developer — React & Next.js
               </span>
             </motion.div>
 
             {/* Main Editorial Heading Reveal */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl font-medium leading-[1.1] text-text-primary">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-6xl font-medium leading-[1.15] text-text-primary">
               <span className="inline-block overflow-hidden mr-3">
-                <span className="hero-title-word inline-block opacity-0">Decoding</span>
+                <span className="hero-title-word inline-block opacity-0">I</span>
               </span>
               <span className="inline-block overflow-hidden mr-3">
-                <span className="hero-title-word inline-block opacity-0">Data</span>
+                <span className="hero-title-word inline-block opacity-0">build</span>
               </span>
               <span className="inline-block overflow-hidden mr-3">
-                <span className="hero-title-word inline-block opacity-0">with</span>
+                <span className="hero-title-word inline-block opacity-0">fast,</span>
               </span>
-              <br />
               <span className="inline-block overflow-hidden mr-3 text-primary italic font-semibold">
-                <span className="hero-title-word inline-block opacity-0">Intellectual</span>
+                <span className="hero-title-word inline-block opacity-0">polished</span>
               </span>
-              <span className="inline-block overflow-hidden text-primary italic font-semibold">
-                <span className="hero-title-word inline-block opacity-0">Authority.</span>
+              <span className="inline-block overflow-hidden text-primary italic font-semibold text-primary">
+                <span className="hero-title-word inline-block opacity-0">interfaces</span>
+              </span>
+              <span className="inline-block overflow-hidden mr-3">
+                <span className="hero-title-word inline-block opacity-0">—</span>
+              </span>
+              <br className="hidden sm:inline" />
+              <span className="inline-block overflow-hidden mr-3">
+                <span className="hero-title-word inline-block opacity-0">tested</span>
+              </span>
+              <span className="inline-block overflow-hidden mr-3">
+                <span className="hero-title-word inline-block opacity-0">like</span>
+              </span>
+              <span className="inline-block overflow-hidden mr-3">
+                <span className="hero-title-word inline-block opacity-0">they&apos;ll</span>
+              </span>
+              <span className="inline-block overflow-hidden mr-3">
+                <span className="hero-title-word inline-block opacity-0">actually</span>
+              </span>
+              <span className="inline-block overflow-hidden">
+                <span className="hero-title-word inline-block opacity-0">ship.</span>
               </span>
             </h1>
 
@@ -155,16 +173,15 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-text-secondary text-base sm:text-lg leading-relaxed max-w-xl"
             >
-              I build elegant, high-performance web applications with clean typography, 
-              fluid animations, and responsive layouts. Bringing a high-precision testing 
-              mindset to frontend development to ship solid, production-grade products.
+              Frontend developer specializing in React and Next.js, with 1.5 years of QA 
+              experience that shapes how I build — cross-browser tested, performance-checked, 
+              no shipping bugs to production.
             </motion.p>
 
             {/* Action Buttons with Shimmer Hover Effects */}

@@ -14,11 +14,11 @@ export default function Experience() {
       tags: ['UI/UX QA', 'Cross-browser Testing', 'Defect Tracking', 'Usability Audits', 'Automated Testing']
     },
     {
-      year: '2026 & Beyond',
-      title: 'Target: Dedicated Frontend Developer',
-      subtitle: 'Professional Goal',
-      description: 'Leveraging my detail-oriented UI QA background from Apollo Tyres and strong React/Next.js foundation to land a high-impact Frontend Developer or UI Engineer role.',
-      tags: ['React Developer', 'UI Engineer', 'Next.js specialist', 'Full-time']
+      year: 'Now',
+      title: 'Now — Frontend Developer, open for freelance & full-time work',
+      subtitle: 'Freelance & Full-time',
+      description: 'Leveraging my detail-oriented UI QA background from Apollo Tyres and strong React/Next.js foundation to build scalable frontend applications, deliver custom web features, and optimize browser rendering.',
+      tags: ['React Developer', 'UI Engineer', 'Next.js specialist', 'Full-time', 'Freelance']
     }
   ]
 

@@ -12,7 +12,7 @@ interface AnimatedCounterProps {
 export default function AnimatedCounter({ value, suffix = '', duration = 1.5, decimals = 0 }: AnimatedCounterProps) {
   const [count, setCount] = useState(0)
   const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '-50px' })
+  const isInView = useInView(ref, { once: true })
 
   useEffect(() => {
     if (isInView) {
@@ -28,7 +28,7 @@ export default function AnimatedCounter({ value, suffix = '', duration = 1.5, de
   }, [isInView, value, duration, decimals])
 
   return (
-    <span ref={ref} className="tabular-nums">
+    <span ref={ref} className="tabular-nums inline-block">
       {decimals > 0 ? count.toFixed(decimals) : count}
       {suffix}
     </span>

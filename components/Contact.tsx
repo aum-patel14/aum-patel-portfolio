@@ -91,7 +91,7 @@ export default function Contact() {
                 </div>
               </div>
               <p className="text-text-secondary text-sm leading-relaxed">
-                Looking to expand my analytical footprint. Actively seeking full-time junior positions, internships, or consultancy roles globally.
+                Actively seeking full-time Frontend Developer positions, junior UI engineering roles, or internships globally.
               </p>
             </div>
 

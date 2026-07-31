@@ -12,9 +12,9 @@ export const personalInfo = {
 }
 
 export const heroStats = [
-  { value: '5+', label: 'Apps Shipped' },
-  { value: '1.5', label: 'Years UI QA Experience' },
-  { value: '12+', label: 'Core Tech Skills' },
+  { value: '2+', label: 'Apps Shipped' },
+  { value: '1.5', label: 'QA & Dev Experience' },
+  { value: '6+', label: 'Core Tech Skills' },
   { value: '120', label: 'FPS Render Performance' },
 ]
 
@@ -157,12 +157,12 @@ export const timeline: TimelineItem[] = [
     side: 'right',
   },
   {
-    year: '2026 & Beyond',
-    title: 'Target: Dedicated Frontend Developer',
-    subtitle: 'Professional Goal',
-    description: 'Leveraging my detail-oriented UI QA background from Apollo Tyres and strong React/Next.js foundation to land a high-impact Frontend Developer or UI Engineer role.',
-    tags: ['React Developer', 'UI Engineer', 'Next.js specialist', 'Full-time'],
-    type: 'future',
+    year: 'Now',
+    title: 'Now — Frontend Developer, open for freelance & full-time work',
+    subtitle: 'Freelance & Full-time',
+    description: 'Leveraging my detail-oriented UI QA background from Apollo Tyres and strong React/Next.js foundation to build scalable frontend applications, deliver custom web features, and optimize browser rendering.',
+    tags: ['React Developer', 'UI Engineer', 'Next.js specialist', 'Full-time', 'Freelance'],
+    type: 'experience',
     side: 'left',
   },
 ]

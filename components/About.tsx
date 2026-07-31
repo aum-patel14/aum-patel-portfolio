@@ -36,17 +36,18 @@ export default function About() {
               className="space-y-6 text-text-secondary text-base sm:text-lg leading-relaxed font-sans"
             >
               <p>
-                I&apos;m <span className="text-text-primary font-semibold">Aum Patel</span>, a passionate 
-                Frontend Developer currently pursuing my B.Tech in Computer Science & Engineering at Parul University.
+                I&apos;m <span className="text-text-primary font-semibold">Aum Patel</span>, a Frontend 
+                Developer currently pursuing my B.Tech in Computer Science & Engineering at Parul University.
               </p>
               <p>
-                My professional experience includes <span className="text-text-primary font-medium">1.5 years as a QA Tester & UI Analyst at Apollo Tyres</span>. 
-                This tenure trained me to design interfaces with extreme precision—ensuring cross-browser compatibility, auditing usability layouts, and collaborating with frontend teams to ship high-quality products.
+                My 1.5 years as a <span className="text-text-primary font-medium">QA Tester & UI Analyst at Apollo Tyres</span> trained 
+                me to build with precision — I know exactly how interfaces break, so I build ones that don&apos;t. 
+                I focus on cross-browser compatibility, clean responsive layouts, and interaction details most developers skip.
               </p>
               <p>
-                Today, I build optimized web applications, structure clean responsive layouts, and design physics-based 
-                micro-animations like the ones in <span className="text-text-primary font-medium">ChessMaster Pro</span>. I enjoy working at 
-                the intersection of layout architecture, clean code, and interactive visual aesthetics.
+                Today I build React and Next.js applications with physics-based micro-animations, like the ones in 
+                <span className="text-text-primary font-medium">ChessMaster Pro</span>, and I care as much about how code performs 
+                under real users as how it looks in a demo.
               </p>
             </motion.div>
           </div>
@@ -70,7 +71,7 @@ export default function About() {
                   </h3>
                 </div>
                 <div className="flex flex-wrap gap-2.5">
-                  {['Python', 'SQL', 'Excel', 'Pandas', 'Power BI', 'NumPy', 'Tableau', 'Machine Learning'].map((tech) => (
+                  {['React 19', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Framer Motion'].map((tech) => (
                     <span
                       key={tech}
                       className="bg-surface-container-high px-3.5 py-1.5 font-mono text-[11px] text-text-secondary rounded border border-border/40 hover:border-primary/30 transition-all duration-300"
@@ -92,7 +93,7 @@ export default function About() {
                 <Verified className="w-6 h-6 text-primary mb-3" />
                 <h4 className="font-serif text-3xl font-bold text-primary mb-1">1.5</h4>
                 <p className="font-mono text-[9px] tracking-widest uppercase text-on-surface-variant">
-                  Years QA & Data Experience
+                  Years QA & Dev Experience
                 </p>
               </motion.div>
 
@@ -109,7 +110,7 @@ export default function About() {
                 </div>
                 
                 <p className="font-serif text-lg md:text-xl text-text-secondary italic leading-relaxed relative z-10 text-center max-w-2xl mx-auto">
-                  &ldquo;Data without context is merely noise. True analytical value lies in forging the narrative that bridges complex metrics with actionable strategy.&rdquo;
+                  &ldquo;Good UI isn&apos;t just designed — it&apos;s tested until it can&apos;t break.&rdquo;
                 </p>
               </motion.div>
 

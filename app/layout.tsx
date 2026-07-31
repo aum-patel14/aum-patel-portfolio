@@ -27,9 +27,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://aumpatel.dev'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Aum Patel | Frontend Developer — High-Performance Interfaces',
+  title: 'Aum Patel | Frontend Developer — React & Next.js',
   description:
-    'Aum Patel — Frontend Developer from Gujarat, India. Specializing in TypeScript, React, Next.js, Tailwind CSS, and Framer Motion. Building clean, high-performance web applications.',
+    'Aum Patel — Frontend Developer from Gujarat, India. Building fast, polished web applications with React, Next.js, TypeScript, and Tailwind CSS. QA-tested, production-ready UI.',
   keywords: [
     'Aum Patel',
     'Frontend Developer',
@@ -47,18 +47,18 @@ export const metadata: Metadata = {
   creator: 'Aum Patel',
   openGraph: {
     type: 'website',
-    title: 'Check out my portfolio! 🚀 | Aum Patel',
+    title: 'Aum Patel | Frontend Developer — React & Next.js',
     description:
-      'Frontend Developer — Crafting high-performance, beautiful web applications with TypeScript, React & Next.js.',
+      'Aum Patel — Frontend Developer from Gujarat, India. Building fast, polished web applications with React, Next.js, TypeScript, and Tailwind CSS. QA-tested, production-ready UI.',
     siteName: 'Aum Patel Portfolio',
     locale: 'en_US',
     url: siteUrl,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Aum Patel | Frontend Developer',
+    title: 'Aum Patel | Frontend Developer — React & Next.js',
     description:
-      'Frontend Developer — TypeScript · React · Next.js · TailwindCSS · Animation',
+      'Aum Patel — Frontend Developer from Gujarat, India. Building fast, polished web applications with React, Next.js, TypeScript, and Tailwind CSS. QA-tested, production-ready UI.',
     creator: '@aumpatel',
   },
   robots: {

@@ -73,7 +73,7 @@ export default function Footer() {
               Get in Touch
             </h4>
             <p className="text-text-secondary text-sm mb-4 font-sans">
-              Open to internship opportunities and data strategy roles.
+              Open to internship opportunities, frontend development positions, and freelance projects.
             </p>
             <a
               href={`mailto:${personalInfo.email}`}
