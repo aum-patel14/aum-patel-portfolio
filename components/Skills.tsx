@@ -149,7 +149,7 @@ export default function Skills() {
         <AnimatePresence mode="wait">
           {viewMode === 'bar' ? (
             <motion.div
-              key="bar-grid"
+              key={`bar-grid-${activeCategory}`}
               variants={gridVariants}
               initial="hidden"
               whileInView="visible"
